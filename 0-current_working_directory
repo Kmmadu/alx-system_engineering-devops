@@ -1,1 +1,2 @@
-echo "$current_directory"
+#!/bin/bash
+pwd
