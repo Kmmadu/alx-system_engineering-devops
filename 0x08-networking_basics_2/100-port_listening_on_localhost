@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Listening on port 98
+sudo nc -l localhost 98
