@@ -1,15 +1,6 @@
 #!/usr/bin/env bash
-
-# Backup the original hosts file
-sudo cp /etc/hosts /etc/hosts.bak
-
-# Modify the hosts file
-sudo sed -i 's/localhost$/localhost\n127.0.0.2 localhost/' /etc/hosts
-sudo sed -i 's/facebook.com/8.8.8.8 facebook.com/' /etc/hosts
-
-# Display the modified hosts file
-cat /etc/hosts
-
-# Restart networking to apply changes
-sudo service networking restart
-
+# server configuration
+sudo cp /etc/hosts ~/hosts.new
+sudo sed -i s/127.0.0.1/127.0.0.2/ ~/hosts.new
+echo "8.8.8.8   facebook.com" >> ~/hosts.new
+cp -f ~/hosts.new /etc/hosts
