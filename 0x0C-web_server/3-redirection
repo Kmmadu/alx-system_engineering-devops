@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Configure your Nginx server to redirect /redirect_me to another page.
+
+# Update and install Nginx
+sudo apt-get update
+sudo apt-get -y install nginx
+
+# Allow Nginx through firewall
+sudo ufw allow "Nginx HTTP"
+
+# Create index.html file with "Hello World!"
+echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
+
+# Enable redirection
+sudo sed -i 's|# server_name _;|server_name _;|' /etc/nginx/sites-available/default
+sudo sed -i '/server_name _;/a \\n\tlocation /redirect_me/ {\n\t\treturn 301 https://www.example.com/;\n\t}\n' /etc/nginx/sites-available/default
+
+# Test Nginx configuration
+sudo nginx -t
+
+# Restart Nginx if configuration is valid
+if [ $? -eq 0 ]; then
+    sudo service nginx restart
+else
+    echo "Nginx configuration test failed. Please check your configuration."
+fi
+

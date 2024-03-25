@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# 404 configuration
+
+# Update and install Nginx
+sudo apt-get update
+sudo apt-get -y install nginx
+
+# Allow Nginx through firewall
+sudo ufw allow "Nginx HTTP"
+
+# Create custom 404 page
+sudo mkdir -p /var/www/html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+
+# Update Nginx configuration to use the custom 404 page
+sudo sed -i '/server {/a \
+    error_page 404 /404.html;\
+    location = /404.html {\
+        internal;\
+    }\
+' /etc/nginx/sites-available/default
+
+# Test Nginx configuration
+sudo nginx -t
+
+# Reload Nginx if configuration is valid
+if [ $? -eq 0 ]; then
+    sudo service nginx reload
+else
+    echo "Nginx configuration test failed. Please check your configuration."
+fi
+
