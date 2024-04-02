@@ -1,12 +1,29 @@
 #!/usr/bin/env bash
+# Configure nginx to listen on port 80
 
-# Ensure Nginx is installed
-apt-get update
-apt-get install -y nginx
+# Remove the default configuration file
+rm /etc/nginx/sites-enabled/default
 
-# Modify Nginx configuration to listen on port 80
-sed -i 's/\(listen\s\+\)[0-9]\+/\180/' /etc/nginx/sites-available/default
+# Create a new configuration file for port 80
+cat <<EOF > /etc/nginx/sites-available/port_80
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
 
-# Restart Nginx to apply changes
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name _;
+
+    location / {
+        try_files \$uri \$uri/ =404;
+    }
+}
+EOF
+
+# Create a symbolic link to enable the new configuration
+ln -s /etc/nginx/sites-available/port_80 /etc/nginx/sites-enabled/port_80
+
+# Restart nginx to apply the changes
 service nginx restart
 
