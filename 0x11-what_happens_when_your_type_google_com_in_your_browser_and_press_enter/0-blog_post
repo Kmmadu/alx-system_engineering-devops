@@ -1,0 +1,34 @@
+Title: Understanding the Journey: What Happens When You Type https://www.google.com and Press Enter
+
+In today's interconnected world, we often take for granted the complexity underlying a simple action like typing a URL into our browser and pressing Enter. Behind the scenes, a fascinating journey unfolds, involving various components of the web stack working together seamlessly to deliver the requested content. In this article, we'll delve into the intricacies of what happens when you type https://www.google.com into your browser and hit Enter.
+
+DNS Request:
+The journey begins with a Domain Name System (DNS) request. When you enter a URL, your browser needs to translate the human-readable domain name (e.g., www.google.com) into an IP address that identifies the server hosting the website. It sends a DNS query to a DNS resolver, which looks up the corresponding IP address associated with the domain name.
+
+TCP/IP:
+Once the IP address is obtained, the browser initiates a Transmission Control Protocol (TCP) connection to the server using the Internet Protocol (IP). TCP ensures reliable data transmission by establishing a connection, breaking data into packets, and reassembling them at the destination.
+
+Firewall:
+As the TCP connection is established, it may pass through firewalls, which act as barriers to unauthorized access and filter network traffic based on predefined security rules. The firewall checks whether the incoming connection meets the allowed criteria before permitting it to proceed.
+
+HTTPS/SSL:
+In our case, the URL begins with https, indicating a secure connection using the Hypertext Transfer Protocol Secure (HTTPS) protocol. This involves the use of Secure Sockets Layer (SSL) or Transport Layer Security (TLS) encryption to protect the data transmitted between the browser and the server from interception or tampering by malicious actors.
+
+Load-Balancer:
+To efficiently handle incoming requests, especially from high-traffic websites like Google, a load balancer may be employed. The load balancer distributes incoming traffic across multiple servers, ensuring optimal resource utilization and preventing any single server from becoming overwhelmed.
+
+Web Server:
+Upon reaching the appropriate server, the browser sends an HTTP request for the specified webpage (/ in our case) to the web server. The web server, such as Apache or Nginx, processes the request, retrieves the requested resources, and generates an HTTP response containing the HTML, CSS, JavaScript, and other assets comprising the webpage.
+
+Application Server:
+In some cases, dynamic content generation or processing may be required. This is where an application server comes into play. It executes the server-side code, interacts with databases or external services, and generates dynamic content tailored to the user's request.
+
+Database:
+If the requested webpage relies on data stored in a database, the application server may query the database to retrieve the necessary information. This could include user preferences, search results, or any other data required to populate the webpage dynamically.
+
+Conclusion:
+As the final piece of the puzzle falls into place, the web server sends the HTTP response back to the browser, which renders the webpage, displaying the familiar Google search interface. What began as a simple user action has traversed a complex network of interconnected systems, each playing a vital role in delivering the desired content.
+
+Next time you type a URL into your browser and hit Enter, take a moment to appreciate the intricate dance of technology unfolding behind the scenes, making the vast expanse of the internet accessible at your fingertips.
+
+

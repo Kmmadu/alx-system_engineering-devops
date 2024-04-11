@@ -1,0 +1,13 @@
+Title: Adding Detailed Explanation for Typing "https://www.google.com"
+
+Description:
+
+I've noticed that the section explaining what happens when typing https://www.google.com could benefit from a more comprehensive explanation. I've written a detailed breakdown covering DNS resolution, TCP/IP communication, firewall traversal, HTTPS encryption, load balancing, web server handling, application server processing, and database interaction.
+
+This contribution aims to enhance the existing content by providing a deeper understanding of the underlying processes involved in accessing a website through a browser.
+
+I hope this addition aligns with the goal of the repository to provide a comprehensive resource for understanding the intricacies of web technologies.
+
+Thank you for considering this pull request.
+
+
